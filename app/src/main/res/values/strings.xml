@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Marvel Heros Assignment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="heroes">Heroes</string>
+    <string name="villains">Villains</string>
+    <string name="anti_heroes">Anti-heroes</string>
+    <string name="aliens">Aliens</string>
+    <string name="humans">Humans</string>
+    <string name="choose_your_character">Choose your character</string>
+    <string name="welcome_to_marvel_heroes">Welcome to Marvel Heroes</string>
 </resources>
