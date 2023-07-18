@@ -12,6 +12,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="23dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView7"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
@@ -60,16 +61,17 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="4dp"
-        android:textSize="16sp"
+        android:textSize="@dimen/profile_subtitle_size"
         android:text="@string/welcome_to_marvel_heroes"
         android:textColor="@color/primary_grey"
+        android:fontFamily="@font/gilroy_medium"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="77dp"
         android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
@@ -83,6 +85,8 @@
             android:layout_height="24dp"
             android:layout_marginTop="18dp"
             android:layout_marginEnd="24dp"
+            android:layout_marginBottom="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/app_bar_search_icon" />
@@ -103,18 +107,17 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="126dp"
+            android:layout_width="140dp"
             android:layout_height="52dp"
-            android:layout_marginEnd="144dp"
             android:gravity="center"
-            android:text="MARVEL"
+            android:text="@string/marvel"
             android:textAlignment="center"
             android:textColor="@color/primary_red"
-            android:textSize="18dp"
-            android:textStyle="bold"
+            android:textSize="@dimen/home_title_size"
+            android:fontFamily="@font/gilroy_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -122,7 +125,7 @@
         android:id="@+id/scrollView7"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="192dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +140,10 @@
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/gilroy_semibold"
+                android:paddingStart="18dp"
+                android:paddingTop="18dp"
                 android:text="@string/heroes"
                 android:textColor="@color/primary_red"
                 android:textSize="18sp" />
@@ -145,13 +151,18 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewCharacter"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="200dp"
+
+                />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:fontFamily="@font/gilroy_semibold"
+                android:padding="5dp"
+                android:paddingStart="18dp"
+                android:paddingTop="18dp"
                 android:text="@string/villains"
                 android:textColor="@color/primary_red"
                 android:textSize="18sp" />
@@ -165,7 +176,10 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:fontFamily="@font/gilroy_semibold"
+                android:padding="5dp"
+                android:paddingStart="18dp"
+                android:paddingTop="18dp"
                 android:text="@string/anti_heroes"
                 android:textColor="@color/primary_red"
                 android:textSize="18sp" />
@@ -179,7 +193,10 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:fontFamily="@font/gilroy_semibold"
+                android:padding="5dp"
+                android:paddingStart="18dp"
+                android:paddingTop="18dp"
                 android:text="@string/aliens"
                 android:textColor="@color/primary_red"
                 android:textSize="18sp" />
@@ -193,7 +210,10 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:fontFamily="@font/gilroy_semibold"
+                android:padding="5dp"
+                android:paddingStart="18dp"
+                android:paddingTop="18dp"
                 android:text="@string/humans"
                 android:textColor="@color/primary_red"
                 android:textSize="18sp" />
@@ -206,6 +226,7 @@
         </LinearLayout>
     </ScrollView>
 
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="342dp"
@@ -214,8 +235,9 @@
         android:gravity="center"
         android:text="@string/choose_your_character"
         android:textAlignment="center"
-        android:textColor="@color/primary_black"
-        android:textSize="32dp"
+        android:textColor="@color/primary_dark"
+        android:textSize="@dimen/home_title_size"
+        android:fontFamily="@font/gilroy_bold"
         app:layout_constraintBottom_toTopOf="@+id/scrollView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.393"

@@ -60,13 +60,13 @@ class HomeFragment : Fragment() {
         getSeries()
         getStories()
 
-
     }
+
     private fun getCharacters() {
         viewModel.getCharacters(timestamp, apikey, hash)
         viewModel.characters.observe(requireActivity(), Observer { characters ->
             if (characters != null) {
-                Log.e("TAG",characters.toString())
+                Log.e("TAG",characters.data.results.size.toString())
                 val adapter = CharactersAdapter(characters,requireContext())
                 val layoutManager = GridLayoutManager(requireContext(),1,GridLayoutManager.HORIZONTAL,false)
                 binding.recyclerViewCharacter.layoutManager = layoutManager
