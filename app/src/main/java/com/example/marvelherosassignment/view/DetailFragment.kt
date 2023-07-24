@@ -83,8 +83,6 @@ class DetailFragment : Fragment() {
                     Glide.with(requireActivity()).load(Methods.MergeString(Methods.dataSeries!!.thumbnail.path,Methods.dataSeries!!.thumbnail.extension))
                         .into(image)
                 }
-        } else{
-
         }
         binding.imageBack.setOnClickListener {
             requireActivity().onBackPressed()
