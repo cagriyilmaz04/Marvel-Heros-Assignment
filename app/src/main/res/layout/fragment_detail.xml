@@ -153,16 +153,125 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:id="@+id/textDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:textSize="@dimen/characteristic_text_size"
+                android:paddingStart="16dp"
                 android:fontFamily="@font/gilroy_medium"
                 android:text="@string/no_description"
-                android:textColor="@color/white"></TextView>
+                android:textColor="@color/white">
+
+            </TextView>
+
+            <!-- First row -->
+            <LinearLayout
+                android:paddingTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/gilroy_medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/characteristic_text_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="@string/comics"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerComics"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:layout_weight="1"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+            <!-- Second row -->
+            <LinearLayout
+                android:paddingTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/gilroy_medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/characteristic_text_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="@string/series"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewSeries"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:layout_weight="1"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+            <!-- Third row -->
+            <LinearLayout
+                android:paddingTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/gilroy_medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/characteristic_text_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="@string/events" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewStories"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:layout_weight="1"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+            <!-- Fourth row -->
+            <LinearLayout
+                android:paddingTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/gilroy_medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/characteristic_text_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:layout_weight="1"
+                    android:text="@string/series"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewEvents"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:layout_weight="1"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>

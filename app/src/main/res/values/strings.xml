@@ -10,4 +10,8 @@
     <string name="welcome_to_marvel_heroes">Welcome to Marvel Heroes</string>
     <string name="marvel">MARVEL</string>
     <string name="no_description">No Description</string>
+    <string name="comics">Comics</string>
+    <string name="characters">Characters</string>
+    <string name="events">Events</string>
+    <string name="series">Series</string>
 </resources>

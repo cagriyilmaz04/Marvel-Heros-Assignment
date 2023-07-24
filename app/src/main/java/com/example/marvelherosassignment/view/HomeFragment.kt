@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -172,6 +173,7 @@ class HomeFragment : Fragment(),CharacterClickListener,ComicClickListener,Series
     override fun onClickCharacter(position: Int) {
         val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment()
         Methods.dataCharacters = Character?.data!!.results.get(position)
+        Toast.makeText(requireContext(),"Bura",Toast.LENGTH_LONG).show()
         findNavController().navigate(action)
     }
 

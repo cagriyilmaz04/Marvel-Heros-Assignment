@@ -6,11 +6,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Toast
-import androidx.compose.ui.text.style.TextAlign
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marvelherosassignment.R
+import com.example.marvelherosassignment.adapter.BarAdapter
 import com.example.marvelherosassignment.databinding.FragmentDetailBinding
 import com.example.marvelherosassignment.util.Methods
 
@@ -38,6 +39,33 @@ class DetailFragment : Fragment() {
                 if(!Methods.dataCharacters!!.description.isNullOrEmpty()){
                     textDescription.text = Methods.dataCharacters!!.description.toString()
                 }
+                val linearLayout = LinearLayoutManager(requireContext())
+                linearLayout.orientation = RecyclerView.HORIZONTAL
+                val adapter = BarAdapter(20,Methods.dataCharacters!!.comics.items.size)
+                binding.recyclerComics.layoutManager = linearLayout
+                binding.recyclerComics.adapter = adapter
+
+                val linearLayoutSeries = LinearLayoutManager(requireContext())
+                linearLayoutSeries.orientation = RecyclerView.HORIZONTAL
+                binding.recyclerViewSeries.layoutManager = linearLayoutSeries
+                val adapterComics = BarAdapter(20,Methods.dataCharacters!!.series.items.size)
+                binding.recyclerViewSeries.adapter = adapterComics
+
+                val adapterCharacters = BarAdapter(20,Methods.dataCharacters!!.stories.items.size.toInt())
+
+                val linearLayoutCharacters = LinearLayoutManager(requireContext())
+                linearLayoutCharacters.orientation = RecyclerView.HORIZONTAL
+                binding.recyclerViewStories.layoutManager = linearLayoutCharacters
+                binding.recyclerViewStories.adapter = adapterCharacters
+
+                val adapterEvents = BarAdapter(20,Methods.dataCharacters!!.events.available.toInt())
+
+                val linearLayoutEvents = LinearLayoutManager(requireContext())
+                linearLayoutEvents.orientation = RecyclerView.HORIZONTAL
+                binding.recyclerViewEvents.layoutManager = linearLayoutEvents
+                binding.recyclerViewEvents.adapter = adapterEvents
+
+
 
 
             }
@@ -59,12 +87,39 @@ class DetailFragment : Fragment() {
 
         } else if(Methods.dataEvents != null) {
             with(binding) {
+
                 textComics.text = Methods.dataEvents!!.comics.items.size.toString()
                 textStories.text = Methods.dataEvents!!.stories.items.size.toString()
                 textSeries.text = Methods.dataEvents!!.series.items.size.toString()
                 if(!Methods.dataEvents!!.description.isNullOrEmpty()){
                     binding.textDescription.text = Methods.dataEvents!!.description.toString()
                 }
+                val linearLayout = LinearLayoutManager(requireContext())
+                linearLayout.orientation = RecyclerView.HORIZONTAL
+                val adapter = BarAdapter(20,Methods.dataEvents!!.comics.items.size)
+                binding.recyclerComics.layoutManager = linearLayout
+                binding.recyclerComics.adapter = adapter
+
+                val linearLayoutSeries = LinearLayoutManager(requireContext())
+                linearLayoutSeries.orientation = RecyclerView.HORIZONTAL
+                binding.recyclerViewSeries.layoutManager = linearLayoutSeries
+                val adapterComics = BarAdapter(20,Methods.dataEvents!!.series.items.size)
+                binding.recyclerViewSeries.adapter = adapterComics
+
+                val adapterCharacters = BarAdapter(20,Methods.dataEvents!!.stories.items.size.toInt())
+
+                val linearLayoutCharacters = LinearLayoutManager(requireContext())
+                linearLayoutCharacters.orientation = RecyclerView.HORIZONTAL
+                binding.recyclerViewStories.layoutManager = linearLayoutCharacters
+                binding.recyclerViewStories.adapter = adapterCharacters
+
+                //val adapterEvents = BarAdapter(20,Methods.dataEvents!!.events.available.toInt())
+
+                val linearLayoutEvents = LinearLayoutManager(requireContext())
+                linearLayoutEvents.orientation = RecyclerView.HORIZONTAL
+                binding.recyclerViewEvents.layoutManager = linearLayoutEvents
+              //  binding.recyclerViewEvents.adapter = adapterEvents
+
                 Glide.with(requireActivity()).load(Methods.MergeString(Methods.dataEvents!!.thumbnail.path,Methods.dataEvents!!.thumbnail.extension))
                     .into(image)
             }
