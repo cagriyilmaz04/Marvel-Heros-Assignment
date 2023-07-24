@@ -6,16 +6,94 @@
     android:layout_height="match_parent"
     tools:context=".view.HomeFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/textWelcomeMarvel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/icon_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:paddingTop="12dp"
+                android:src="@drawable/app_bar_menu" />
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="90dp"
+                android:layout_toEndOf="@+id/toolbar_title"
+                android:paddingTop="12dp"
+                android:paddingEnd="12dp"
+                android:src="@drawable/app_bar_search_icon" />
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/marvel"
+                android:textColor="@color/primary_red"
+                android:textSize="@dimen/home_title_size" />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textWelcomeMarvel"
+        android:layout_width="242dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/gilroy_medium"
+        android:text="@string/welcome_to_marvel_heroes"
+        android:textColor="@color/primary_grey"
+        android:textSize="@dimen/profile_subtitle_size"
+        app:layout_constraintBottom_toTopOf="@+id/textChooseCharacter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textChooseCharacter"
+        android:layout_width="342dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/gilroy_bold"
+        android:gravity="center"
+        android:text="@string/choose_your_character"
+        android:textAlignment="center"
+        android:textColor="@color/primary_dark"
+        android:textSize="@dimen/home_title_size"
+        app:layout_constraintStart_toStartOf="@+id/textWelcomeMarvel"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/scrollView7"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintEnd_toEndOf="@+id/textChooseCharacter"
+        app:layout_constraintStart_toStartOf="@+id/textChooseCharacter"
+        app:layout_constraintTop_toBottomOf="@+id/textChooseCharacter">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -54,82 +132,16 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="242dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="4dp"
-        android:textSize="@dimen/profile_subtitle_size"
-        android:text="@string/welcome_to_marvel_heroes"
-        android:textColor="@color/primary_grey"
-        android:fontFamily="@font/gilroy_medium"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/app_bar_search_icon" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="84dp"
-            android:layout_marginBottom="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/app_bar_menu" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="140dp"
-            android:layout_height="52dp"
-            android:gravity="center"
-            android:text="@string/marvel"
-            android:textAlignment="center"
-            android:textColor="@color/primary_red"
-            android:textSize="@dimen/home_title_size"
-            android:fontFamily="@font/gilroy_bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:id="@+id/scrollView7"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -143,16 +155,14 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/gilroy_semibold"
                 android:paddingStart="18dp"
-                android:paddingTop="18dp"
                 android:text="@string/heroes"
                 android:textColor="@color/primary_red"
-                android:textSize="18sp" />
+                android:textSize="@dimen/section_title_size" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewCharacter"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-
                 />
 
             <TextView
@@ -165,7 +175,7 @@
                 android:paddingTop="18dp"
                 android:text="@string/villains"
                 android:textColor="@color/primary_red"
-                android:textSize="18sp" />
+                android:textSize="@dimen/section_title_size" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewComics"
@@ -182,7 +192,7 @@
                 android:paddingTop="18dp"
                 android:text="@string/anti_heroes"
                 android:textColor="@color/primary_red"
-                android:textSize="18sp" />
+                android:textSize="@dimen/section_title_size" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewEvents"
@@ -199,7 +209,7 @@
                 android:paddingTop="18dp"
                 android:text="@string/aliens"
                 android:textColor="@color/primary_red"
-                android:textSize="18sp" />
+                android:textSize="@dimen/section_title_size" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewSeries"
@@ -216,7 +226,7 @@
                 android:paddingTop="18dp"
                 android:text="@string/humans"
                 android:textColor="@color/primary_red"
-                android:textSize="18sp" />
+                android:textSize="@dimen/section_title_size" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewStories"
@@ -227,22 +237,7 @@
     </ScrollView>
 
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="342dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="-100dp"
-        android:gravity="center"
-        android:text="@string/choose_your_character"
-        android:textAlignment="center"
-        android:textColor="@color/primary_dark"
-        android:textSize="@dimen/home_title_size"
-        android:fontFamily="@font/gilroy_bold"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.393"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,5 +5,5 @@ import com.example.marvelherosassignment.events.Events
 import com.example.marvelherosassignment.events.Result
 
 interface EventsClickListener {
-    fun onClick(character: Result)
+    fun onClickEvents(position: Int)
 }

@@ -5,5 +5,5 @@ import com.example.marvelherosassignment.series.Result
 import com.example.marvelherosassignment.series.Series
 
 interface SeriesClickListener {
-    fun onClick(character: Result)
+    fun onClickSeries(position: Int)
 }

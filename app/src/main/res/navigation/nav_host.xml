@@ -5,6 +5,7 @@
     android:id="@+id/nav_host"
     app:startDestination="@id/homeFragment">
 
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.marvelherosassignment.view.HomeFragment"
@@ -12,7 +13,8 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"

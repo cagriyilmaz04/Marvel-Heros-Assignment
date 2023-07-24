@@ -1,8 +1,8 @@
 package com.example.marvelherosassignment.listener
 
-import com.example.marvelherosassignment.characters.Character
-import com.example.marvelherosassignment.characters.Result
-
 interface CharacterClickListener {
-    fun onClick(character:Result)
+    fun onClickCharacter(position:Int)
 }
+
+
+// Concat Adapter : tek recyclerview birden fazla veri listelemeyi sağlama

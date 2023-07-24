@@ -8,8 +8,11 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.example.marvelherosassignment.R
 import com.example.marvelherosassignment.databinding.ActivityMainBinding
+import com.example.marvelherosassignment.listener.CharacterClickListener
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -31,11 +34,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
-// Beyaz renkli durum çubuğu ayarlama
-
-
 }
 
 // 1. https://gateway.marvel.com/v1/public/characters?apikey=f2c42fe5ee5b23ba455719a164fbb4e6&ts=1&hash=3f710649b1cccf9286fe7f158af411dc

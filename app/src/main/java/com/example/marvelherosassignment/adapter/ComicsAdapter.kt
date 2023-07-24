@@ -9,9 +9,10 @@ import com.bumptech.glide.Glide
 import com.example.marvelherosassignment.characters.Character
 import com.example.marvelherosassignment.comics.Comics
 import com.example.marvelherosassignment.databinding.CommonRvLayoutBinding
+import com.example.marvelherosassignment.listener.ComicClickListener
 import com.example.marvelherosassignment.util.Methods
 
-class ComicsAdapter(val list:Comics,val context:Context):RecyclerView.Adapter<ComicsAdapter.ComicsVH>() {
+class ComicsAdapter(val list:Comics,val context:Context,val listener:ComicClickListener):RecyclerView.Adapter<ComicsAdapter.ComicsVH>() {
     class ComicsVH(val binding:CommonRvLayoutBinding):RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -33,6 +34,9 @@ class ComicsAdapter(val list:Comics,val context:Context):RecyclerView.Adapter<Co
                 .load(Methods.MergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
                 .into(imageViewAdapter)
 
+        }
+        holder.itemView.setOnClickListener {
+            listener.onClickComic(position)
         }
 
     }

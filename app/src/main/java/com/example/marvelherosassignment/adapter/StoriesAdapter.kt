@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marvelherosassignment.databinding.CommonRvLayoutBinding
+import com.example.marvelherosassignment.listener.StoriesClickListener
 import com.example.marvelherosassignment.series.Series
 import com.example.marvelherosassignment.stories.Stories
 import com.example.marvelherosassignment.util.Methods
 
-class StoriesAdapter (val list: Stories, val context: Context): RecyclerView.Adapter<StoriesAdapter.StoriesVH>() {
+class StoriesAdapter (val list: Stories, val context: Context,val listener:StoriesClickListener): RecyclerView.Adapter<StoriesAdapter.StoriesVH>() {
     class StoriesVH(val binding: CommonRvLayoutBinding): RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -37,6 +38,9 @@ class StoriesAdapter (val list: Stories, val context: Context): RecyclerView.Ada
         }
 
         */
+        holder.itemView.setOnClickListener {
+            listener.onClickStories(position)
+        }
 
     }
 }

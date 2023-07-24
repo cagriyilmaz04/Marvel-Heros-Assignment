@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marvelherosassignment.databinding.CommonRvLayoutBinding
 import com.example.marvelherosassignment.events.Events
+import com.example.marvelherosassignment.listener.SeriesClickListener
 import com.example.marvelherosassignment.series.Series
 import com.example.marvelherosassignment.util.Methods
 
-class SeriesAdapter(val list: Series, val context: Context): RecyclerView.Adapter<SeriesAdapter.SeriesVH>() {
+class SeriesAdapter(val list: Series, val context: Context,val listener:SeriesClickListener): RecyclerView.Adapter<SeriesAdapter.SeriesVH>() {
     class SeriesVH(val binding: CommonRvLayoutBinding): RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -33,6 +34,10 @@ class SeriesAdapter(val list: Series, val context: Context): RecyclerView.Adapte
                 .load(Methods.MergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
                 .into(imageViewAdapter)
 
+        }
+
+        holder.itemView.setOnClickListener {
+            listener.onClickSeries(position)
         }
 
     }
