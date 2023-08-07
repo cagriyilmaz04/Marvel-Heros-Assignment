@@ -1,6 +1,6 @@
 package com.example.marvelherosassignment.comics
 
-data class Result(
+data class ResultComics(
     val characters: Characters,
     val collectedIssues: List<CollectedIssue>,
     val collections: List<Any>,

@@ -30,7 +30,7 @@ class EventsAdapter (val list: Events, val context: Context,val listener:EventsC
         with(holder.binding){
             textViewAdapter.text = list.data.results.get(position).title
             Glide.with(context)
-                .load(Methods.MergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
+                .load(Methods.mergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
                 .into(imageViewAdapter)
 
         }

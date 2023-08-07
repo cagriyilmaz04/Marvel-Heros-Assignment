@@ -28,7 +28,7 @@ class CharactersAdapter(val list:Character,val context:Context,val listener:Char
         with(holder.binding){
             textViewAdapter.text = list.data.results.get(position).name
             Glide.with(context)
-                .load(Methods.MergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
+                .load(Methods.mergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
                 .into(imageViewAdapter)
         }
         holder.itemView.setOnClickListener {

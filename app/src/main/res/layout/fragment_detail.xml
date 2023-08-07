@@ -117,6 +117,7 @@
         </LinearLayout>
 
         <!-- Item 4 -->
+        <!-- Item 4 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -136,7 +137,6 @@
                 android:text="Text 4"
                 android:textColor="@color/white" />
         </LinearLayout>
-
 
     </LinearLayout>
 
@@ -176,6 +176,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textConst1"
                     android:fontFamily="@font/gilroy_medium"
                     android:textColor="@color/white"
                     android:textSize="@dimen/characteristic_text_size"
@@ -202,6 +203,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textConst2"
                     android:fontFamily="@font/gilroy_medium"
                     android:textColor="@color/white"
                     android:textSize="@dimen/characteristic_text_size"
@@ -228,6 +230,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textConst3"
                     android:fontFamily="@font/gilroy_medium"
                     android:textColor="@color/white"
                     android:textSize="@dimen/characteristic_text_size"
@@ -254,6 +257,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textConst4"
                     android:fontFamily="@font/gilroy_medium"
                     android:textColor="@color/white"
                     android:textSize="@dimen/characteristic_text_size"

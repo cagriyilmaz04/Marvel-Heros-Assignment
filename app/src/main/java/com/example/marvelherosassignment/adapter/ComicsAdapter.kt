@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.marvelherosassignment.characters.Character
 import com.example.marvelherosassignment.comics.Comics
 import com.example.marvelherosassignment.databinding.CommonRvLayoutBinding
 import com.example.marvelherosassignment.listener.ComicClickListener
@@ -31,7 +30,7 @@ class ComicsAdapter(val list:Comics,val context:Context,val listener:ComicClickL
         with(holder.binding){
             textViewAdapter.text = list.data.results.get(position).title
             Glide.with(context)
-                .load(Methods.MergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
+                .load(Methods.mergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
                 .into(imageViewAdapter)
 
         }

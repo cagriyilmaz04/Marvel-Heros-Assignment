@@ -1,17 +1,24 @@
 package com.example.marvelherosassignment.util
 
+import com.example.marvelherosassignment.characters.ResultCharacters
+import com.example.marvelherosassignment.comics.ResultComics
+import com.example.marvelherosassignment.events.ResultEvents
+import com.example.marvelherosassignment.series.ResultSeries
+import com.example.marvelherosassignment.stories.ResultStories
+
 object Methods {
-    fun MergeString(extension:String,path:String):String{
+    fun mergeString(extension:String, path:String):String{
         var returnedString = ""
         returnedString += extension
         returnedString += "."
         returnedString += path
         return returnedString
     }
-    var dataCharacters : com.example.marvelherosassignment.characters.Result ?=null
-    var dataComic : com.example.marvelherosassignment.comics.Result? = null
-    var dataEvents: com.example.marvelherosassignment.events.Result? = null
-    var dataSeries: com.example.marvelherosassignment.series.Result?=null
-    var dataStories: com.example.marvelherosassignment.stories.Result?=null
+    var dataCharacters : ResultCharacters?=null
+    var dataComic : ResultComics? = null
+    var dataEvents: ResultEvents? = null
+    var dataSeries: ResultSeries?=null
+    var dataStories: ResultStories?=null
+
 
 }

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marvelherosassignment.databinding.CommonRvLayoutBinding
-import com.example.marvelherosassignment.events.Events
 import com.example.marvelherosassignment.listener.SeriesClickListener
 import com.example.marvelherosassignment.series.Series
 import com.example.marvelherosassignment.util.Methods
@@ -31,7 +30,7 @@ class SeriesAdapter(val list: Series, val context: Context,val listener:SeriesCl
         with(holder.binding){
             textViewAdapter.text = list.data.results.get(position).title
             Glide.with(context)
-                .load(Methods.MergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
+                .load(Methods.mergeString(list.data.results.get(position).thumbnail.path,list.data.results.get(position).thumbnail.extension))
                 .into(imageViewAdapter)
 
         }

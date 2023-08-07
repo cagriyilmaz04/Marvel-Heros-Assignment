@@ -1,6 +1,6 @@
 package com.example.marvelherosassignment.stories
 
-data class Result(
+data class ResultStories(
     val characters: Characters,
     val comics: Comics,
     val creators: Creators,

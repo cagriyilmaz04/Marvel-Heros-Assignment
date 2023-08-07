@@ -14,4 +14,6 @@
     <string name="characters">Characters</string>
     <string name="events">Events</string>
     <string name="series">Series</string>
+    <string name="creators">Creators</string>
+    <string name="stories">Stories</string>
 </resources>

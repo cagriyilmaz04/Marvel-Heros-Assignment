@@ -8,7 +8,7 @@ import com.example.marvelherosassignment.databinding.AttributeBarBinding
 
 
 class BarAdapter (val maxValue: Int, var value: Int) : RecyclerView.Adapter<BarAdapter.AttributeVH>() {
-    val ITEM_COUNT = 44
+    val ITEM_COUNT = 50
 
     class AttributeVH(val binding: AttributeBarBinding) : RecyclerView.ViewHolder(binding.root) {
 

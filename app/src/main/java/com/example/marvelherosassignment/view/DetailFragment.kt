@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -32,10 +33,10 @@ class DetailFragment : Fragment() {
         _binding = FragmentDetailBinding.inflate(layoutInflater,container,false)
         if(Methods.dataCharacters!= null) {
             with(binding){
-                textComics.text = Methods.dataCharacters!!.comics.items.size.toString()
-                textEvents.text = Methods.dataCharacters!!.events.items.size.toString()
-                textSeries.text = Methods.dataCharacters!!.series.items.size.toString()
-                textStories.text = Methods.dataCharacters!!.stories.items.size.toString()
+                textComics.text = Methods.dataCharacters!!.comics.available.toString()
+                textEvents.text = Methods.dataCharacters!!.events.available.toString()
+                textSeries.text = Methods.dataCharacters!!.series.available.toString()
+                textStories.text = Methods.dataCharacters!!.stories.available.toString()
                 if(!Methods.dataCharacters!!.description.isNullOrEmpty()){
                     textDescription.text = Methods.dataCharacters!!.description.toString()
                 }
@@ -70,9 +71,49 @@ class DetailFragment : Fragment() {
 
             }
 
-            Glide.with(this).load(Methods.MergeString(Methods.dataCharacters!!.thumbnail.path,Methods.dataCharacters!!.thumbnail.extension))
+            Glide.with(this).load(Methods.mergeString(Methods.dataCharacters!!.thumbnail.path,Methods.dataCharacters!!.thumbnail.extension))
                 .into(binding.image)
-        } else if(Methods.dataComic != null) {
+        }
+        else if(Methods.dataComic != null) {
+
+            binding.textConst1.text = requireContext().getString(R.string.creators)
+            binding.textConst2.text = requireContext().getString(R.string.characters)
+            binding.textConst3.text = requireContext().getString(R.string.stories)
+            binding.textConst4.text = requireContext().getString(R.string.events)
+
+
+
+            binding.textComics.text = Methods.dataComic!!.creators.available.toString()
+
+            if(!Methods.dataComic!!.description.isNullOrEmpty()){
+                binding.textDescription.text = Methods.dataComic!!.description.toString()
+            }
+            val linearLayout = LinearLayoutManager(requireContext())
+            linearLayout.orientation = RecyclerView.HORIZONTAL
+            val adapter = BarAdapter(20,Methods.dataComic!!.creators.available)
+            binding.recyclerComics.layoutManager = linearLayout
+            binding.recyclerComics.adapter = adapter
+
+            val linearLayoutSeries = LinearLayoutManager(requireContext())
+            linearLayoutSeries.orientation = RecyclerView.HORIZONTAL
+            binding.recyclerViewSeries.layoutManager = linearLayoutSeries
+            val adapterComics = BarAdapter(20,Methods.dataComic!!.characters.available)
+            binding.recyclerViewSeries.adapter = adapterComics
+
+            val adapterCharacters = BarAdapter(20,Methods.dataComic!!.stories.available)
+
+            val linearLayoutCharacters = LinearLayoutManager(requireContext())
+            linearLayoutCharacters.orientation = RecyclerView.HORIZONTAL
+            binding.recyclerViewStories.layoutManager = linearLayoutCharacters
+            binding.recyclerViewStories.adapter = adapterCharacters
+
+            val adapterEvents = BarAdapter(20,Methods.dataComic!!.stories.available)
+
+            val linearLayoutEvents = LinearLayoutManager(requireContext())
+            linearLayoutEvents.orientation = RecyclerView.HORIZONTAL
+            binding.recyclerViewEvents.layoutManager = linearLayoutEvents
+            binding.recyclerViewEvents.adapter = adapterEvents
+
             with(binding) {
                 textEvents.text = Methods.dataComic!!.events.items.size.toString()
                 textStories.text = Methods.dataComic!!.stories.items.size.toString()
@@ -80,30 +121,36 @@ class DetailFragment : Fragment() {
                 if(Methods.dataComic!!.description != ""){
                     binding.textDescription.text = Methods.dataComic!!.description.toString()
                 }
-                Glide.with(requireActivity()).load(Methods.MergeString(Methods.dataComic!!.thumbnail.path,Methods.dataComic!!.thumbnail.extension))
+                Glide.with(requireActivity()).load(Methods.mergeString(Methods.dataComic!!.thumbnail.path,Methods.dataComic!!.thumbnail.extension))
                     .into(image)
             }
 
 
         } else if(Methods.dataEvents != null) {
+            binding.textConst1.text = requireContext().getString(R.string.creators)
+            binding.textConst2.text = requireContext().getString(R.string.characters)
+            binding.textConst3.text = requireContext().getString(R.string.stories)
+            binding.textConst4.text = requireContext().getString(R.string.comics)
+
+
             with(binding) {
 
-                textComics.text = Methods.dataEvents!!.comics.items.size.toString()
-                textStories.text = Methods.dataEvents!!.stories.items.size.toString()
-                textSeries.text = Methods.dataEvents!!.series.items.size.toString()
+                textComics.text = Methods.dataEvents!!.comics.available.toString()
+                textStories.text = Methods.dataEvents!!.stories.available.toString()
+                textSeries.text = Methods.dataEvents!!.series.available.toString()
                 if(!Methods.dataEvents!!.description.isNullOrEmpty()){
                     binding.textDescription.text = Methods.dataEvents!!.description.toString()
                 }
                 val linearLayout = LinearLayoutManager(requireContext())
                 linearLayout.orientation = RecyclerView.HORIZONTAL
-                val adapter = BarAdapter(20,Methods.dataEvents!!.comics.items.size)
+                val adapter = BarAdapter(Methods.dataEvents!!.creators.items.size+22,Methods.dataEvents!!.creators.items.size)
                 binding.recyclerComics.layoutManager = linearLayout
                 binding.recyclerComics.adapter = adapter
 
                 val linearLayoutSeries = LinearLayoutManager(requireContext())
                 linearLayoutSeries.orientation = RecyclerView.HORIZONTAL
                 binding.recyclerViewSeries.layoutManager = linearLayoutSeries
-                val adapterComics = BarAdapter(20,Methods.dataEvents!!.series.items.size)
+                val adapterComics = BarAdapter(200,Methods.dataEvents!!.series.items.size)
                 binding.recyclerViewSeries.adapter = adapterComics
 
                 val adapterCharacters = BarAdapter(20,Methods.dataEvents!!.stories.items.size.toInt())
@@ -118,29 +165,30 @@ class DetailFragment : Fragment() {
                 val linearLayoutEvents = LinearLayoutManager(requireContext())
                 linearLayoutEvents.orientation = RecyclerView.HORIZONTAL
                 binding.recyclerViewEvents.layoutManager = linearLayoutEvents
-              //  binding.recyclerViewEvents.adapter = adapterEvents
+                //binding.recyclerViewEvents.adapter = adapterEvents
 
-                Glide.with(requireActivity()).load(Methods.MergeString(Methods.dataEvents!!.thumbnail.path,Methods.dataEvents!!.thumbnail.extension))
+                Glide.with(requireActivity()).load(Methods.mergeString(Methods.dataEvents!!.thumbnail.path,Methods.dataEvents!!.thumbnail.extension))
                     .into(image)
             }
 
         } else if(Methods.dataSeries != null) {
             Log.e("DENEME",Methods.dataSeries!!.comics.items.size.toString())
                 with(binding) {
-                    textComics.text = Methods.dataSeries!!.comics.items.size.toString()
-                    textStories.text = Methods.dataSeries!!.stories.items.size.toString()
-                    textStories.text = Methods.dataSeries!!.stories.items.size.toString()
-                    textEvents.text = Methods.dataSeries!!.events.items.size.toString()
+                    textComics.text = Methods.dataSeries!!.comics.available.toString()
+                    textStories.text = Methods.dataSeries!!.stories.available.toString()
+                    textStories.text = Methods.dataSeries!!.stories.available.toString()
+                    textEvents.text = Methods.dataSeries!!.events.available.toString()
 
                     if(!(Methods.dataSeries!!.description.isNullOrEmpty())) {
                     textDescription.text = Methods.dataSeries!!.description.toString()
                     }
-                    Glide.with(requireActivity()).load(Methods.MergeString(Methods.dataSeries!!.thumbnail.path,Methods.dataSeries!!.thumbnail.extension))
+                    Glide.with(requireActivity()).load(Methods.mergeString(Methods.dataSeries!!.thumbnail.path,Methods.dataSeries!!.thumbnail.extension))
                         .into(image)
                 }
         }
         binding.imageBack.setOnClickListener {
-            requireActivity().onBackPressed()
+            //requireActivity().onBackPressed()
+            findNavController().popBackStack()
         }
 
         return binding.root

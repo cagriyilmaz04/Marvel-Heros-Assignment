@@ -1,6 +1,6 @@
 package com.example.marvelherosassignment.characters
 
-data class Result(
+data class ResultCharacters(
     val id: Int,
     val name: String,
     val description: String,

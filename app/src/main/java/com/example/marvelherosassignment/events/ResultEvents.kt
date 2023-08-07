@@ -1,22 +1,20 @@
-package com.example.marvelherosassignment.series
+package com.example.marvelherosassignment.events
 
-data class Result(
+data class ResultEvents(
     val characters: Characters,
     val comics: Comics,
     val creators: Creators,
     val description: String,
-    val endYear: Int,
-    val events: Events,
+    val end: String,
     val id: Int,
     val modified: String,
     val next: Next,
-    val previous: Any,
-    val rating: String,
+    val previous: Previous,
     val resourceURI: String,
-    val startYear: Int,
+    val series: Series,
+    val start: String,
     val stories: Stories,
     val thumbnail: Thumbnail,
     val title: String,
-    val type: String,
     val urls: List<Url>
 )

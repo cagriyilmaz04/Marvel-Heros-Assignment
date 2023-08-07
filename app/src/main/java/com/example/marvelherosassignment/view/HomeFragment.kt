@@ -8,6 +8,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -39,6 +40,7 @@ class HomeFragment : Fragment(),CharacterClickListener,ComicClickListener,Series
     private val timestamp = "1"
     private val apikey = "f2c42fe5ee5b23ba455719a164fbb4e6"
     private val hash = "3f710649b1cccf9286fe7f158af411dc"
+    val viewModelCharahcter by viewModels<MarvelViewModel>()
     var Character : Character ? = null
     var Comic: Comics ? = null
     var Events: Events? = null
@@ -48,7 +50,6 @@ class HomeFragment : Fragment(),CharacterClickListener,ComicClickListener,Series
         super.onCreate(savedInstanceState)
 
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,7 +58,6 @@ class HomeFragment : Fragment(),CharacterClickListener,ComicClickListener,Series
 
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -65,7 +65,7 @@ class HomeFragment : Fragment(),CharacterClickListener,ComicClickListener,Series
         val viewModelFactory = MarvelViewModelFactory(repository)
 
         viewModel = ViewModelProvider(this, viewModelFactory).get(MarvelViewModel::class.java)
-
+        
 
         getCharacters()
         getComics()
