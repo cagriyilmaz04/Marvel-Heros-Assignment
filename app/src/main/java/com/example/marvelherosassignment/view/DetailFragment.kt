@@ -34,9 +34,10 @@ class DetailFragment : Fragment() {
         if(Methods.dataCharacters!= null) {
             with(binding){
                 textComics.text = Methods.dataCharacters!!.comics.available.toString()
-                textEvents.text = Methods.dataCharacters!!.events.available.toString()
-                textSeries.text = Methods.dataCharacters!!.series.available.toString()
-                textStories.text = Methods.dataCharacters!!.stories.available.toString()
+                textSeries.text = Methods.dataCharacters!!.events.available.toString()
+                textStories.text = Methods.dataCharacters!!.series.available.toString()
+                textEvents.text = Methods.dataCharacters!!.stories.available.toString()
+
                 if(!Methods.dataCharacters!!.description.isNullOrEmpty()){
                     textDescription.text = Methods.dataCharacters!!.description.toString()
                 }
@@ -66,9 +67,6 @@ class DetailFragment : Fragment() {
                 binding.recyclerViewEvents.layoutManager = linearLayoutEvents
                 binding.recyclerViewEvents.adapter = adapterEvents
 
-
-
-
             }
 
             Glide.with(this).load(Methods.mergeString(Methods.dataCharacters!!.thumbnail.path,Methods.dataCharacters!!.thumbnail.extension))
@@ -80,8 +78,6 @@ class DetailFragment : Fragment() {
             binding.textConst2.text = requireContext().getString(R.string.characters)
             binding.textConst3.text = requireContext().getString(R.string.stories)
             binding.textConst4.text = requireContext().getString(R.string.events)
-
-
 
             binding.textComics.text = Methods.dataComic!!.creators.available.toString()
 
@@ -115,8 +111,11 @@ class DetailFragment : Fragment() {
             binding.recyclerViewEvents.adapter = adapterEvents
 
             with(binding) {
-                textEvents.text = Methods.dataComic!!.events.items.size.toString()
-                textStories.text = Methods.dataComic!!.stories.items.size.toString()
+                textComics.text = Methods.dataComic?.characters?.available.toString()
+                textSeries.text = Methods.dataComic?.creators?.available.toString()
+                textStories.text = Methods.dataComic?.events?.available.toString()
+                textEvents.text = Methods.dataComic?.stories?.available.toString()
+
 
                 if(Methods.dataComic!!.description != ""){
                     binding.textDescription.text = Methods.dataComic!!.description.toString()
@@ -135,9 +134,10 @@ class DetailFragment : Fragment() {
 
             with(binding) {
 
-                textComics.text = Methods.dataEvents!!.comics.available.toString()
-                textStories.text = Methods.dataEvents!!.stories.available.toString()
-                textSeries.text = Methods.dataEvents!!.series.available.toString()
+                textComics.text = Methods.dataEvents?.characters?.available.toString()
+                textSeries.text = Methods.dataEvents?.creators?.available.toString()
+                textStories.text = Methods.dataEvents?.series?.available.toString()
+                textEvents.text =  Methods.dataEvents?.stories?.available.toString()
                 if(!Methods.dataEvents!!.description.isNullOrEmpty()){
                     binding.textDescription.text = Methods.dataEvents!!.description.toString()
                 }
@@ -172,12 +172,11 @@ class DetailFragment : Fragment() {
             }
 
         } else if(Methods.dataSeries != null) {
-            Log.e("DENEME",Methods.dataSeries!!.comics.items.size.toString())
                 with(binding) {
-                    textComics.text = Methods.dataSeries!!.comics.available.toString()
-                    textStories.text = Methods.dataSeries!!.stories.available.toString()
-                    textStories.text = Methods.dataSeries!!.stories.available.toString()
-                    textEvents.text = Methods.dataSeries!!.events.available.toString()
+                    textComics.text = Methods.dataSeries!!.characters.available.toString()
+                    textSeries.text = Methods.dataSeries!!.events.available.toString()
+                    textStories.text = Methods.dataSeries!!.creators.available.toString()
+                    textEvents.text = Methods.dataSeries!!.stories.available.toString()
 
                     if(!(Methods.dataSeries!!.description.isNullOrEmpty())) {
                     textDescription.text = Methods.dataSeries!!.description.toString()

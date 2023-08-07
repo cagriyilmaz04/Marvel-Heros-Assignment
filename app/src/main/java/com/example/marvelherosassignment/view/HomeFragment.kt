@@ -29,6 +29,9 @@ import com.example.marvelherosassignment.repository.MarvelRepository
 import com.example.marvelherosassignment.series.Series
 import com.example.marvelherosassignment.service.RetrofitInstance
 import com.example.marvelherosassignment.stories.Stories
+import com.example.marvelherosassignment.util.ConnectivityRepository
+import com.example.marvelherosassignment.util.ConnectivityViewModel
+import com.example.marvelherosassignment.util.ConnectivityViewModelFactory
 import com.example.marvelherosassignment.util.Methods
 import com.example.marvelherosassignment.viewmodel.MarvelViewModel
 
@@ -46,6 +49,9 @@ class HomeFragment : Fragment(),CharacterClickListener,ComicClickListener,Series
     var Events: Events? = null
     var Series: Series? = null
     var Stories: Stories? = null
+
+    private lateinit var viewModelConnectiviy: ConnectivityViewModel
+    private lateinit var repository: ConnectivityRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -61,17 +67,35 @@ class HomeFragment : Fragment(),CharacterClickListener,ComicClickListener,Series
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val repository = MarvelRepository(RetrofitInstance.instance)
-        val viewModelFactory = MarvelViewModelFactory(repository)
+        val repositoryTemp = MarvelRepository(RetrofitInstance.instance)
+        val viewModelFactory = MarvelViewModelFactory(repositoryTemp)
 
+
+        repository = ConnectivityRepository(requireContext())
+        viewModelConnectiviy = ViewModelProvider(this, ConnectivityViewModelFactory(repository))
+            .get(ConnectivityViewModel::class.java)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MarvelViewModel::class.java)
-        
-
         getCharacters()
         getComics()
         getEvents()
         getSeries()
         getStories()
+        viewModelConnectiviy.internetState.observe(viewLifecycleOwner, Observer { isConnected ->
+            if (isConnected) {
+
+            } else {
+               binding.apply {
+                  // recyclerViewCharacter.visibility = View.INVISIBLE
+                  // recyclerViewStories.visibility = View.INVISIBLE
+                   //recyclerViewSeries.visibility = View.INVISIBLE
+                   //recyclerViewEvents.visibility = View.INVISIBLE
+                   //recyclerViewComics.visibility = View.INVISIBLE
+
+               }
+            }
+        })
+
+
 
     }
     fun setStatusBarColor(activity: Activity, colorResId: Int) {

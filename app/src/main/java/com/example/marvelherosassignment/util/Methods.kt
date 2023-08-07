@@ -5,7 +5,10 @@ import com.example.marvelherosassignment.comics.ResultComics
 import com.example.marvelherosassignment.events.ResultEvents
 import com.example.marvelherosassignment.series.ResultSeries
 import com.example.marvelherosassignment.stories.ResultStories
-
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 object Methods {
     fun mergeString(extension:String, path:String):String{
         var returnedString = ""
@@ -22,3 +25,6 @@ object Methods {
 
 
 }
+
+
+
