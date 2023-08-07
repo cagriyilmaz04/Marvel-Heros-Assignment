@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.HomeFragment">
+    tools:context=".view.home.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/constraintLayout"
@@ -96,35 +96,35 @@
         app:layout_constraintTop_toBottomOf="@+id/textChooseCharacter">
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/hero_category" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/villain_category" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/antihero_category" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/alien_category" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

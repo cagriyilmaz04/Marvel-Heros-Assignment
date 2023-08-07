@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marvelherosassignment.databinding.CommonRvLayoutBinding
-import com.example.marvelherosassignment.listener.SeriesClickListener
-import com.example.marvelherosassignment.series.Series
+import com.example.marvelherosassignment.util.listener.SeriesClickListener
+import com.example.marvelherosassignment.model.series.Series
 import com.example.marvelherosassignment.util.Methods
 
-class SeriesAdapter(val list: Series, val context: Context,val listener:SeriesClickListener): RecyclerView.Adapter<SeriesAdapter.SeriesVH>() {
+class SeriesAdapter(val list: com.example.marvelherosassignment.model.series.Series, val context: Context, val listener: SeriesClickListener): RecyclerView.Adapter<SeriesAdapter.SeriesVH>() {
     class SeriesVH(val binding: CommonRvLayoutBinding): RecyclerView.ViewHolder(binding.root) {
 
     }

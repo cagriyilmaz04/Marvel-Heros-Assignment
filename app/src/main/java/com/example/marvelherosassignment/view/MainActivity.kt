@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.example.marvelherosassignment.R
 import com.example.marvelherosassignment.databinding.ActivityMainBinding
-import com.example.marvelherosassignment.listener.CharacterClickListener
+import com.example.marvelherosassignment.util.listener.CharacterClickListener
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

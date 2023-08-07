@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.marvelherosassignment.characters.Character
+import com.example.marvelherosassignment.model.characters.Character
 import com.example.marvelherosassignment.databinding.CommonRvLayoutBinding
-import com.example.marvelherosassignment.listener.CharacterClickListener
+import com.example.marvelherosassignment.util.listener.CharacterClickListener
 import com.example.marvelherosassignment.util.Methods
 
-class CharactersAdapter(val list:Character,val context:Context,val listener:CharacterClickListener):RecyclerView.Adapter<CharactersAdapter.CharacterVH>() {
+class CharactersAdapter(val list: com.example.marvelherosassignment.model.characters.Character, val context:Context, val listener: CharacterClickListener):RecyclerView.Adapter<CharactersAdapter.CharacterVH>() {
     class CharacterVH(val binding:CommonRvLayoutBinding):RecyclerView.ViewHolder(binding.root) {
 
     }

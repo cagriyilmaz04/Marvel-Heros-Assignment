@@ -1,10 +1,10 @@
 package com.example.marvelherosassignment.util
 
-import com.example.marvelherosassignment.characters.ResultCharacters
-import com.example.marvelherosassignment.comics.ResultComics
-import com.example.marvelherosassignment.events.ResultEvents
-import com.example.marvelherosassignment.series.ResultSeries
-import com.example.marvelherosassignment.stories.ResultStories
+import com.example.marvelherosassignment.model.characters.ResultCharacters
+import com.example.marvelherosassignment.model.comics.ResultComics
+import com.example.marvelherosassignment.model.events.ResultEvents
+import com.example.marvelherosassignment.model.series.ResultSeries
+import com.example.marvelherosassignment.model.stories.ResultStories
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -17,11 +17,11 @@ object Methods {
         returnedString += path
         return returnedString
     }
-    var dataCharacters : ResultCharacters?=null
-    var dataComic : ResultComics? = null
+    var dataCharacters : com.example.marvelherosassignment.model.characters.ResultCharacters?=null
+    var dataComic : com.example.marvelherosassignment.model.comics.ResultComics? = null
     var dataEvents: ResultEvents? = null
-    var dataSeries: ResultSeries?=null
-    var dataStories: ResultStories?=null
+    var dataSeries: com.example.marvelherosassignment.model.series.ResultSeries?=null
+    var dataStories: com.example.marvelherosassignment.model.stories.ResultStories?=null
 
 
 }

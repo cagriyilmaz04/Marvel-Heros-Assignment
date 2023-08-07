@@ -1,7 +1,7 @@
 package com.example.marvelherosassignment.model
 
-import com.example.marvelherosassignment.characters.Character
+import com.example.marvelherosassignment.model.characters.Character
 
 data class CharactersResponse (
-    val result: Character
+    val result: com.example.marvelherosassignment.model.characters.Character
 )

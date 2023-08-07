@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marvelherosassignment.databinding.CommonRvLayoutBinding
-import com.example.marvelherosassignment.events.Events
-import com.example.marvelherosassignment.listener.EventsClickListener
+import com.example.marvelherosassignment.model.events.Events
+import com.example.marvelherosassignment.util.listener.EventsClickListener
 import com.example.marvelherosassignment.util.Methods
 
-class EventsAdapter (val list: Events, val context: Context,val listener:EventsClickListener): RecyclerView.Adapter<EventsAdapter.EventVH>() {
+class EventsAdapter (val list: Events, val context: Context, val listener: EventsClickListener): RecyclerView.Adapter<EventsAdapter.EventVH>() {
     class EventVH(val binding: CommonRvLayoutBinding): RecyclerView.ViewHolder(binding.root) {
 
     }

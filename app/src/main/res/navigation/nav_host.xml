@@ -8,17 +8,32 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.marvelherosassignment.view.HomeFragment"
+        android:name="com.example.marvelherosassignment.view.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment"
             app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_seeAllFragment"
+            app:destination="@id/seeAllFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.marvelherosassignment.view.DetailFragment"
+        android:name="com.example.marvelherosassignment.view.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/seeAllFragment"
+        android:name="com.example.marvelherosassignment.view.seeall.SeeAllFragment"
+        android:label="fragment_see_all"
+        tools:layout="@layout/fragment_see_all" >
+        <action
+            android:id="@+id/action_seeAllFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <argument
+            android:name="type"
+            app:argType="com.example.marvelherosassignment.util.Type" />
+    </fragment>
 </navigation>

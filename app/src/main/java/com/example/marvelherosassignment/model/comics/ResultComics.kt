@@ -1,0 +1,33 @@
+package com.example.marvelherosassignment.model.comics
+
+data class ResultComics(
+    val characters: com.example.marvelherosassignment.model.comics.Characters,
+    val collectedIssues: List<com.example.marvelherosassignment.model.comics.CollectedIssue>,
+    val collections: List<Any>,
+    val creators: com.example.marvelherosassignment.model.comics.Creators,
+    val dates: List<com.example.marvelherosassignment.model.comics.Date>,
+    val description: String,
+    val diamondCode: String,
+    val digitalId: Int,
+    val ean: String,
+    val events: com.example.marvelherosassignment.model.comics.Events,
+    val format: String,
+    val id: Int,
+    val images: List<com.example.marvelherosassignment.model.comics.Image>,
+    val isbn: String,
+    val issn: String,
+    val issueNumber: Int,
+    val modified: String,
+    val pageCount: Int,
+    val prices: List<com.example.marvelherosassignment.model.comics.Price>,
+    val resourceURI: String,
+    val series: com.example.marvelherosassignment.model.comics.Series,
+    val stories: com.example.marvelherosassignment.model.comics.Stories,
+    val textObjects: List<com.example.marvelherosassignment.model.comics.TextObject>,
+    val thumbnail: com.example.marvelherosassignment.model.comics.Thumbnail,
+    val title: String,
+    val upc: String,
+    val urls: List<com.example.marvelherosassignment.model.comics.Url>,
+    val variantDescription: String,
+    val variants: List<com.example.marvelherosassignment.model.comics.Variant>
+)

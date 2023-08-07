@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.marvelherosassignment.comics.Comics
+import com.example.marvelherosassignment.model.comics.Comics
 import com.example.marvelherosassignment.databinding.CommonRvLayoutBinding
-import com.example.marvelherosassignment.listener.ComicClickListener
+import com.example.marvelherosassignment.util.listener.ComicClickListener
 import com.example.marvelherosassignment.util.Methods
 
-class ComicsAdapter(val list:Comics,val context:Context,val listener:ComicClickListener):RecyclerView.Adapter<ComicsAdapter.ComicsVH>() {
+class ComicsAdapter(val list: com.example.marvelherosassignment.model.comics.Comics, val context:Context, val listener: ComicClickListener):RecyclerView.Adapter<ComicsAdapter.ComicsVH>() {
     class ComicsVH(val binding:CommonRvLayoutBinding):RecyclerView.ViewHolder(binding.root) {
 
     }
